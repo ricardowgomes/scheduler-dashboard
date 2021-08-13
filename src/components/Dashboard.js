@@ -28,14 +28,10 @@ const data = [
 ];
 
 class Dashboard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: false,
-      focused: null
-    };
+  state = {
+    loading: false,
+    focused: null
   };
-
 
   selectPanel(id) {
     this.setState(previousState => ({
@@ -59,10 +55,9 @@ class Dashboard extends Component {
       .map(panel => (
         <Panel
           key={panel.id}
-          id={panel.id}
           label={panel.label}
           value={panel.value}
-          onSelect={this.selectPanel}
+          onSelect={event => this.selectPanel(panel.id)}
         />
       ));
 
